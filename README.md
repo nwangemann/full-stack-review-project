@@ -27,7 +27,7 @@ ICEBOX
 <br/>
 
 *routes*
-- home(/)
+- main(/)
 - profile(/profile)
 - login(/login)
 - account(/account)
