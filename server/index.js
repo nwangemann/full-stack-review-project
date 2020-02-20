@@ -4,6 +4,7 @@ const massive = require("massive");
 const session = require("express-session");
 const { SERVER_PORT, SESSION_SECRET, CONNECTION_STRING } = process.env;
 const {login, register, logout, userSession} = require('./controller/authCtrl')
+const {getAllMemes} = require('./controller/memeCtrl')
 const app = express();
 app.use(express.json());
 
@@ -27,9 +28,9 @@ app.use(
 app.post('/auth/login', login);
 app.post('/auth/register', register);
 app.get('/auth/userSession', userSession);
-app.get('/api/logout', logout);
+app.get('/auth/logout', logout);
 // meme endpoints
-
+app.get('/api/get_memes', getAllMemes)
 
 app.listen(SERVER_PORT, () =>
   console.log(`Servin' up some 🔥 🔥 🔥 on Port ${SERVER_PORT}`)
