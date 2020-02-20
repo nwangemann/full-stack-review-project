@@ -37,6 +37,7 @@ ICEBOX
     - App.js
     - App.css
     - index.js
+    - reset.css
     - redux
         - store
         - reducer 
