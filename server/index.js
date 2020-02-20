@@ -3,6 +3,7 @@ const express = require("express");
 const massive = require("massive");
 const session = require("express-session");
 const { SERVER_PORT, SESSION_SECRET, CONNECTION_STRING } = process.env;
+const {login, register, logout, userSession} = require('./controller/authCtrl')
 const app = express();
 app.use(express.json());
 
@@ -23,7 +24,11 @@ app.use(
 );
 
 //auth endpoints
-
+app.post('/auth/login', login);
+app.post('/auth/register', register);
+app.get('/auth/userSession', userSession);
+app.get('/api/logout', logout);
+// meme endpoints
 
 
 app.listen(SERVER_PORT, () =>
